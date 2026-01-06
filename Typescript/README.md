@@ -1,0 +1,1 @@
+Creating interfaces in Typescript
