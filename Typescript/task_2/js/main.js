@@ -2,6 +2,8 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.Teacher = exports.Director = void 0;
 exports.createEmployee = createEmployee;
+exports.isDirector = isDirector;
+exports.executeWork = executeWork;
 exports.Director = /** @class */ (function () {
     function Director() {
     }
@@ -30,12 +32,25 @@ exports.Teacher = /** @class */ (function () {
     };
     return Teacher;
 }());
-function createEmployee(firstName, lastName, salary) {
+function createEmployee(salary) {
     if (salary < 500) {
         return new exports.Teacher();
     }
     return new exports.Director();
 }
-console.log(createEmployee('John', 'Doe', 200));
-console.log(createEmployee('Jane', 'Smith', 1000));
-console.log(createEmployee('Bob', 'Johnson', 500));
+console.log(createEmployee(200));
+console.log(createEmployee(1000));
+console.log(createEmployee(500));
+function isDirector(employee) {
+    return employee instanceof exports.Director;
+}
+function executeWork(employee) {
+    if (employee instanceof exports.Director) {
+        return employee.workDirectorTasks();
+    }
+    if (employee instanceof exports.Teacher) {
+        return employee.workTeacherTasks();
+    }
+}
+console.log(executeWork(createEmployee(200)));
+console.log(executeWork(createEmployee(1000)));
