@@ -4,6 +4,7 @@ exports.Teacher = exports.Director = void 0;
 exports.createEmployee = createEmployee;
 exports.isDirector = isDirector;
 exports.executeWork = executeWork;
+exports.teachClass = teachClass;
 exports.Director = /** @class */ (function () {
     function Director() {
     }
@@ -54,3 +55,13 @@ function executeWork(employee) {
 }
 console.log(executeWork(createEmployee(200)));
 console.log(executeWork(createEmployee(1000)));
+function teachClass(todayClass) {
+    if (todayClass === 'Math') {
+        return 'Teaching Math';
+    }
+    else {
+        return 'Teaching History';
+    }
+}
+console.log(teachClass('Math'));
+console.log(teachClass('History'));
