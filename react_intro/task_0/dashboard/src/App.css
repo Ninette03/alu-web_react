@@ -25,3 +25,7 @@
   font-style: italic;
   padding: 20px;
 }
+
+#email, #password {
+  margin: 0 10px 0 5px;
+}
